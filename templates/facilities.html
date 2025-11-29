@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facilities - Hostel Booking</title>
+  <!-- Flask static CSS link -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>✨ Hostel Facilities</h1>
+    <nav>
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('facilities') }}">Facilities</a>
+      <a href="{{ url_for('booking') }}">Book Now</a>
+    </nav>
+  </header>
+
+  <section class="facilities">
+    <h2>Our Hostel Provides</h2>
+    <ul>
+      <li>📶 24/7 High-Speed WiFi</li>
+      <li>💧 Clean Drinking Water</li>
+      <li>🍽️ Nutritious Food (Veg/Non-Veg)</li>
+      <li>🧹 Daily Room Cleaning</li>
+      <li>🔒 Security & CCTV Surveillance</li>
+      <li>📚 Study Room</li>
+      <li>🏋️ Gym & Sports Facilities</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Online Hostel Room Booking</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Hostel Room Booking</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body style="background-image: url('{{ url_for('static', filename='hostel.jpg') }}'); background-size: cover;">
+
+  <header>
+    <h1>🏨 SRI MANAKULA VINAYAGAR ENGINEERING COLLEGE</h1>
+   <nav>
+  <a href="{{ url_for('index') }}">Home</a>
+  <a href="{{ url_for('booking') }}">Book Now</a>
+  <a href="{{ url_for('facilities') }}">Facilities</a>
+  <a href="{{ url_for('availability') }}">Check Availability</a>
+  <a href="{{ url_for('about') }}">About</a>
+  <a href="{{ url_for('login') }}">Student Login</a>
+  <a href="{{ url_for('contact') }}">Contact</a>
+</nav>
+
+
+  </header>
+
+  <section class="hero">
+    <h2>Welcome to Our Hostel</h2>
+    <p>Comfortable stay, affordable prices & easy online booking.</p>
+    <a href="{{ url_for('booking') }}" class="btn">Book Your Room</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Online Hostel Room Booking | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>

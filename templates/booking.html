@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hostel Room Booking</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-image: url("https://images.unsplash.com/photo-1582719478250-c89cae4dc85b"); /* Hostel room bg */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #333;
+    }
+
+    .navbar {
+      background-color: #fac4e5;
+      text-align: center;
+      padding: 15px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .navbar h2 {
+      color: black;
+      text-shadow: 2px 2px 4px white;
+      font-size: 25px;
+    }
+
+    .booking-container {
+      background: rgba(255, 255, 255, 0.8);
+      width: 450px;
+      margin: 70px auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+
+    h3 {
+      text-align: center;
+      color: #fac4e5;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #fa82aa;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #fa82aa;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .popup-content h2 {
+      color: #fa82aa;
+      margin-bottom: 15px;
+    }
+
+    .close-btn {
+      background: #fa82aa;
+      color: white;
+      padding: 8px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      background: #fa82aa;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <h2>🏠 SRI MANAKULA VINAYAGAR ENGINEERING COLLEGE - Hostel Booking</h2>
+  </div>
+
+  <div class="booking-container">
+    <h3>Book Your Hostel Room</h3>
+    <form id="bookingForm">
+      <label>Full Name:</label>
+      <input type="text" name="name" required>
+
+      <label>Email:</label>
+      <input type="email" name="email" required>
+
+      <label>Phone Number:</label>
+      <input type="tel" name="phone" required>
+
+      <label>Aadhar Number:</label>
+      <input type="text" name="aadhar" required>
+
+      <label>Gender:</label>
+      <select name="gender" required>
+        <option value="">Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+
+      <label>Room Type:</label>
+      <select name="room" required>
+        <option value="">Select Room Type</option>
+        <option>Single Room</option>
+        <option>Double Sharing</option>
+        <option>Triple Sharing</option>
+      </select>
+
+      <label>Stay Duration:</label>
+      <select name="duration" required>
+        <option value="">Select Duration</option>
+        <option>6 Months</option>
+        <option>1 Year</option>
+        <option>2 Years</option>
+      </select>
+
+      <label>Check-in Date:</label>
+      <input type="date" name="date" required>
+
+      <button type="submit">Submit Booking</button>
+    </form>
+  </div>
+
+  <!-- POPUP MESSAGE -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h2>🎉 Booking Successful!</h2>
+      <p>Your hostel room has been successfully booked.</p>
+      <button class="close-btn" onclick="closePopup()">OK</button>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('bookingForm');
+    const popup = document.getElementById('popup');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // stop page reload
+      popup.style.display = 'flex'; // show popup
+      form.reset(); // clear form fields
+    });
+
+    function closePopup() {
+      popup.style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>

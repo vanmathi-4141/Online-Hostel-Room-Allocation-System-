@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url("{{ url_for('static', filename='hostel.jpg') }}") no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #fac4e5;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .navbar h1 {
+            display: inline-block;
+            color: black;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .navbar a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        .navbar a:hover {
+            color: #fac4e5;
+        }
+
+        /* Login box */
+        .login-container {
+            background: rgba(255, 255, 255, 0.85);
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            backdrop-filter: blur(6px);
+        }
+
+        h2 {
+            color: #fac4e5;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #fb8ed1;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #fac4e5;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #fac4e5;
+            color: black;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-size: 14px;
+        }
+
+        /* Popup Message */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            color: #fac4e5;
+            padding: 30px 50px;
+            border-radius: 15px;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>🏠 SRI MANAKULA VINAYAGAR ENGINEERING COLLEGE</h1><br>
+        <div>
+            <a href="/">Home</a>
+            <a href="/booking">Book Now</a>
+            <a href="/facilities">Facilities</a>
+            <a href="/availability">Check Availability</a>
+            <a href="/about">About</a>
+            <a href="/login">Student Login</a>
+            <a href="/contact">Contact</a>
+        </div>
+    </div>
+
+    <!-- Login Form -->
+    <div class="login-container">
+        <h2>Student Login</h2>
+        <form method="POST" action="/login" onsubmit="return showPopup()">
+            <label>Email:</label>
+            <input type="email" name="email" placeholder="Enter your email" required>
+
+            <label>Password:</label>
+            <input type="password" name="password" placeholder="Enter your password" required>
+
+            <button type="submit">Login</button>
+
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+        </form>
+    </div>
+
+    <!-- Popup -->
+    <div id="popup" class="popup">
+        🎉 Login Successful! Redirecting...
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 Online Hostel Room Booking | All Rights Reserved
+    </footer>
+
+    <script>
+        function showPopup() {
+            document.getElementById("popup").style.display = "block";
+            setTimeout(function() {
+                window.location.href = "/booking";
+            }, 2000);
+            return false;
+        }
+    </script>
+
+</body>
+</html>

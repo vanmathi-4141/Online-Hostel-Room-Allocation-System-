@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Hostel Booking</title>
+  <!-- Correct static CSS link for Flask -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>About Our Hostel</h1>
+    <nav>
+      <!-- Correct navigation links for Flask routes -->
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('about') }}" class="active">About</a>
+      <a href="{{ url_for('contact') }}">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="about-container">
+    <section class="about-box">
+      <h2>Welcome to Our Hostel</h2>
+      <p>
+        Our hostel provides safe, affordable, and comfortable accommodation for 
+        students and working professionals. With modern facilities, spacious 
+        rooms, and a friendly environment, we make sure you feel at home.
+      </p>
+
+      <h2>Why Choose Us?</h2>
+      <ul>
+        <li>✔ Affordable room rates</li>
+        <li>✔ 24/7 Wi-Fi and security</li>
+        <li>✔ Healthy and hygienic food</li>
+        <li>✔ Easy online booking</li>
+      </ul>
+
+      <h2>Our Mission</h2>
+      <p>
+        To provide a home-like environment for every student and professional 
+        who stays with us, ensuring safety, comfort, and convenience.
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Hostel Booking System. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+

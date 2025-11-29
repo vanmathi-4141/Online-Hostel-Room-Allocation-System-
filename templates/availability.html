@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Check Availability</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-image: url("https://images.unsplash.com/photo-1582719478250-c89cae4dc85b"); /* hostel background */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #333;
+    }
+
+    header {
+      background-color: #fac4e5;
+      text-align: center;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      color: black;
+      text-shadow: 2px 2px 4px white;
+      font-weight: 700;
+    }
+
+    nav a {
+      text-decoration: none;
+      margin: 0 15px;
+      color: black;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .availability-section {
+      background: rgba(255, 255, 255, 0.85);
+      max-width: 500px;
+      margin: 80px auto;
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+
+    .availability-section h2 {
+      color: #fb75c7;
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    input[type="date"] {
+      padding: 10px;
+      width: 80%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
+
+    button {
+      background-color: rgb(247, 125, 214);
+      border: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: rgb(247, 125, 214);
+    }
+
+    footer {
+      background-color: #fac4e5;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      color: black;
+      font-weight: 500;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .popup-content h2 {
+      color: #f79ee5;
+      margin-bottom: 15px;
+    }
+
+    .close-btn {
+      background: #f79ee5;
+      color: white;
+      padding: 8px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      background: #f79ee5;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🏠 SRI MANAKULA VINAYAGAR ENGINEERING COLLEGE</h1>
+    <nav>
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('booking') }}">Book Now</a>
+      <a href="{{ url_for('facilities') }}">Facilities</a>
+      <a href="{{ url_for('availability') }}">Check Availability</a>
+      <a href="{{ url_for('about') }}">About</a>
+      <a href="{{ url_for('login') }}">Student Login</a>
+      <a href="{{ url_for('contact') }}">Contact</a>
+    </nav>
+  </header>
+
+  <div class="availability-section">
+    <h2>Check Room Availability</h2>
+    <p>Enter your desired date and check available rooms instantly.</p>
+
+    <form id="availabilityForm">
+      <label for="date">Select Date:</label>
+      <input type="date" id="date" name="date" required>
+      <br>
+      <button type="submit">Check Availability</button>
+    </form>
+  </div>
+
+  <!-- POPUP MESSAGE -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h2>✅ Room Available!</h2>
+      <p>Rooms are available on your selected date.</p>
+      <button class="close-btn" onclick="closePopup()">OK</button>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Online Hostel Room Booking | All Rights Reserved
+  </footer>
+
+  <script>
+    const form = document.getElementById('availabilityForm');
+    const popup = document.getElementById('popup');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // stop reload
+      popup.style.display = 'flex'; // show popup
+      form.reset();
+    });
+
+    function closePopup() {
+      popup.style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>

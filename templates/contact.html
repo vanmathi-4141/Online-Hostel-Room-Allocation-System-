@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body style="background-image: url('{{ url_for('static', filename='hostel.jpg') }}'); background-size: cover;">
+
+  <header>
+    <h1>📞 Contact Us</h1>
+    <nav>
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('facilities') }}">Facilities</a>
+      <a href="{{ url_for('booking') }}">Book Now</a>
+      <a href="{{ url_for('about') }}">About</a>
+      <a href="{{ url_for('contact') }}">Contact</a>
+      <a href="{{ url_for('login') }}">Student Login</a>
+      {% if session.get('student') %}
+        <a href="{{ url_for('logout') }}">Logout</a>
+      {% endif %}
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Get in Touch</h2>
+    <p><strong>Email:</strong> hostel@gmail.com</p>
+    <p><strong>Phone:</strong> +91 9876543210</p>
+    <p><strong>Address:</strong> Sri Manakula Vinayagar Engineering College, Puducherry</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Online Hostel Room Booking | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
